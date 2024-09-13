@@ -11,6 +11,8 @@ module.exports = (req, res, next) => {
         res.status(401).send({ message: "User Unauthorized", success: false });
       } else {
         req.body.userId = decoded.id;
+        console.log(req.body.userId);
+
         next();
       }
     });

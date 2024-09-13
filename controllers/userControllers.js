@@ -47,7 +47,20 @@ exports.loginUser = async (req, res) => {
 
 exports.getCurrentUser = async (req, res) => {
   try {
-  } catch (error) {}
+    console.log(req.body.userId);
+    const user = await User.findOne({ _id: req.body.userId });
+    if (!user) {
+      res.status(404).send({ message: "User Not Found", success: false });
+    } else {
+      res.status(200).send({
+        message: "User Fetched",
+        success: true,
+        data: { name: user.name, email: user.email },
+      });
+    }
+  } catch (error) {
+    res.status(500).send({ message: "Error Occurred", success: false, error });
+  }
 };
 
 exports.logoutUser = async (req, res) => {

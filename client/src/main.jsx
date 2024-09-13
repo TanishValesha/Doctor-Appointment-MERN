@@ -4,7 +4,7 @@ import { Toaster } from "react-hot-toast";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Login from "./pages/Login.jsx";
 import Register from "./pages/Register";
-import { Home } from "lucide-react";
+import Home from "./pages/Home.jsx";
 
 createRoot(document.getElementById("root")).render(
   <BrowserRouter>
